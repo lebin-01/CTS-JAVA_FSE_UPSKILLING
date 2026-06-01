@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CivicPulse — CSS3 Styled Community Portal</title>
+
+  <!-- TASK 5 — Google Fonts via <link> (@import alternative shown in CSS) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,700;1,300;1,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- TASK 1 — External Stylesheet linked here -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- TASK 1 — Embedded <style> tag in <head> -->
+  <style>
+    /* Embedded CSS — Task 1 (internal/embedded method) */
+
+    /* Hero gradient overlay tweak — page-specific */
+    .hero { scroll-margin-top: 64px; }
+
+    /* Animated fade-in on load */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .hero-content { animation: slideUp 0.7s ease both; }
+
+    /* Stagger cards */
+    .eventCard:nth-child(1) { animation: slideUp 0.5s 0.1s ease both; }
+    .eventCard:nth-child(2) { animation: slideUp 0.5s 0.2s ease both; }
+    .eventCard:nth-child(3) { animation: slideUp 0.5s 0.3s ease both; }
+
+    /* Smooth scroll for anchor navigation (Task 2/6) */
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+
+<body>
+
+  <!-- TASK 3 — ID Selector: #mainHeader -->
+  <header id="mainHeader">
+    <div class="site-logo">CivicPulse <span>Community Portal</span></div>
+
+    <!-- TASK 6 — Navigation with list styling and link pseudo-classes -->
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#bulletin">Bulletin</a></li>
+        <li><a href="#admin">Admin Table</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#boxmodel">Box Model</a></li>
+        <li><a href="#devtools">DevTools</a></li>
+      </ul>
+    </nav>
+  </header>
+
+
+  <main>
+
+    <!-- TASK 1 — Inline style demo on this heading (red, as required) -->
+    <!-- TASK 4 — Hero with background-image + RGBA overlay + gradient -->
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <span class="badge">City Council Initiative</span>
+
+        <!-- TASK 1 — Inline style: heading color red (as required) -->
+        <h1>
+          <!-- inline style applied directly on element (Task 1) -->
+          <span style="color: #e63946;">Welcome to</span>
+          <em> CivicPulse</em>
+        </h1>
+
+        <p class="display-text" style="color: rgba(255,255,255,0.85); font-size: 1.2rem;">
+          Discover, join, and celebrate local events — powered by your city council.
+        </p>
+
+        <!-- TASK 1 note: inline style used above; external CSS in styles.css; embedded CSS in <style> tag -->
+        <div class="inline-demo-note" style="margin-top: 20px;">
+          📌 <strong>CSS Task 1 Demo:</strong> This heading uses an <em>inline style</em> (red color).
+          The layout uses <em>external CSS</em> (styles.css). The animation uses <em>embedded CSS</em> (&lt;style&gt; in &lt;head&gt;).
+        </div>
+
+        <div class="hero-btns" style="margin-top: 28px;">
+          <a href="#events" class="cta-button">🗓 Browse Events</a>
+          <a href="#register" class="btn-outline" style="color:#fff; border-color:rgba(255,255,255,0.6);">Register Now</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TASK 10 — Info Cards Row — Flexbox / Grid (Bonus) -->
+    <section class="section-wrap" style="background: #fff;">
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="icon">🎪</div>
+          <h4>48 Events</h4>
+          <p>Happening this month across the city</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">📍</div>
+          <h4>12 Venues</h4>
+          <p>Community halls, parks & cultural centres</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">👥</div>
+          <h4>3,200+</h4>
+          <p>Residents registered this season</p>
+        </div>
+        <div class="info-card">
+          <div class="icon">🆓</div>
+          <h4>Free Entry</h4>
+          <p>Most events are free for all residents</p>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TASK 3 — Class selector: .eventCard -->
+    <!-- TASK 4 — Section header gradient -->
+    <!-- TASK 8 — Box model (border, padding, margin on .eventCard) -->
+    <section id="events">
+      <!-- TASK 4 — Gradient section header -->
+      <div class="section-header">
+        <span class="badge">Upcoming</span>
+        <h2>Community Events</h2>
+        <p class="section-desc" style="color: rgba(255,255,255,0.8); margin-bottom: 0;">
+          Find an event that speaks to you and register in minutes.
+        </p>
+      </div>
+
+      <div class="section-wrap" style="background: var(--clr-bg);">
+        <!-- TASK 10 — Grid responsive layout -->
+        <div class="events-grid">
+
+          <!-- TASK 3 — .eventCard class selector applied to all three -->
+          <!-- TASK 8 — border, padding, margin demonstrated on these cards -->
+          <div class="eventCard" data-inspect>
+            <span class="badge" style="background: #2d6a4f;">🎵 Music</span>
+            <h3>Summer Music Festival</h3>
+            <div class="event-meta">
+              <span>📅 July 12, 2025</span>
+              <span>📍 Central Park</span>
+              <span>🕖 6:00 PM</span>
+            </div>
+            <p class="body-copy">
+              An open-air evening of live music from local bands and artists. Bring your family,
+              a blanket, and enjoy the summer vibes.
+            </p>
+            <!-- TASK 6 — styled links with pseudo-classes -->
+            <a href="#register" class="cta-button" style="margin-top: 12px; display: inline-flex;">Register →</a>
+          </div>
+
+          <div class="eventCard" data-inspect>
+            <span class="badge" style="background: #e76f51;">🎨 Arts</span>
+            <h3>Kids Art Workshop</h3>
+            <div class="event-meta">
+              <span>📅 July 18, 2025</span>
+              <span>📍 Community Hall B</span>
+              <span>🕙 10:00 AM</span>
+            </div>
+            <p class="body-copy">
+              A hands-on painting and sculpting session for children aged 6–14. All materials
+              provided. Spaces are limited to 30 participants.
+            </p>
+            <a href="#register" class="cta-button" style="margin-top: 12px; display: inline-flex;">Register →</a>
+          </div>
+
+          <div class="eventCard" data-inspect>
+            <span class="badge" style="background: #457b9d;">🌿 Nature</span>
+            <h3>Green City Nature Walk</h3>
+            <div class="event-meta">
+              <span>📅 July 26, 2025</span>
+              <span>📍 Riverside Trail</span>
+              <span>🕖 7:00 AM</span>
+            </div>
+            <p class="body-copy">
+              A guided morning walk along the riverbank with a naturalist. Learn about local flora,
+              fauna, and urban ecology. Free entry, all ages welcome.
+            </p>
+            <a href="#register" class="cta-button" style="margin-top: 12px; display: inline-flex;">Register →</a>
+          </div>
+
+        </div>
+
+        <!-- TASK 6 — Styled bullet list -->
+        <div style="margin-top: 40px;">
+          <h3 style="margin-bottom: 16px; color: var(--clr-primary-dk);">More This Month</h3>
+          <ul class="styled-list">
+            <li>🏃 Community Sports Day — Aug 2 · City Stadium</li>
+            <li>🍜 Cultural Food Fair — Aug 9 · Town Square</li>
+            <li>📸 Photography Walk — Aug 14 · Old Quarter</li>
+            <li>🎭 Street Theatre Night — Aug 22 · Heritage Park</li>
+          </ul>
+        </div>
+
+        <!-- TASK 6 — Numbered list -->
+        <div style="margin-top: 28px;">
+          <h3 style="margin-bottom: 12px; color: var(--clr-primary-dk);">How to Register</h3>
+          <ol class="numbered-list">
+            <li>Choose an event from the list above.</li>
+            <li>Fill out the registration form at the bottom of this page.</li>
+            <li>You'll receive a confirmation email within 24 hours.</li>
+            <li>Show your confirmation at the event entrance.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TASK 9 — Multi-Column Newspaper Bulletin (column-count, column-gap, column-rule) -->
+    <section id="bulletin" class="section-wrap bulletin-section">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <span class="label-text">Community Bulletin</span>
+        <h2 style="margin-top: 8px; color: var(--clr-primary-dk);">The CivicPulse Gazette</h2>
+      </div>
+
+      <div class="bulletin-columns">
+        <h3>Council Updates &amp; Local News</h3>
+
+        <p class="drop-cap">
+          The city council is pleased to announce the launch of the expanded Community Events
+          Programme for the summer season. With over 48 events planned across 12 venues, this is
+          the most ambitious schedule the council has ever undertaken for residents.
+        </p>
+        <p>
+          New facilities at the Riverside Trail have been completed ahead of schedule, allowing
+          the Green City Nature Walk to proceed on July 26th. The trail now features improved
+          accessibility ramps and informational signage at key ecological points.
+        </p>
+        <p>
+          The Cultural Food Fair in August will feature over 30 stalls representing cuisines from
+          across the globe. Local restaurants and home chefs are encouraged to apply for a stall
+          permit before July 15th via the council website.
+        </p>
+        <p>
+          Community Hall B has been refurbished and is now equipped with modern audio-visual
+          equipment, making it suitable for workshops, screenings, and small performances.
+          Residents may book the hall through the portal at a subsidised rate.
+        </p>
+        <p>
+          The council is also launching a new <span class="accent-text"><strong>Youth Ambassador Programme</strong></span>
+          this season, inviting residents aged 16–25 to co-design future events. Applications
+          open August 1st and close August 31st. Selected ambassadors will serve a six-month term.
+        </p>
+        <p>
+          Parking arrangements near Central Park will be modified during the Music Festival.
+          Residents are advised to use the shuttle service from the eastern car park. Full details
+          are available in the event FAQ on this portal.
+        </p>
+      <!-- TASK 5 — Pull quote typography -->
+      <blockquote class="pull-quote" style="margin-top: 32px;">
+        "Events like these remind us that community is not just a place — it's a feeling."
+      </blockquote>
+    </section>
+
+
+    <!-- TASK 7 — Table Styling (border-collapse, zebra striping, borders, padding, text-align) -->
+    <section id="admin" class="section-wrap" style="background: #fff;">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <span class="label-text">Administration</span>
+        <h2 style="margin-top: 8px;">Events Schedule</h2>
+        <p class="section-desc">
+          Overview of all registered events, their venues, capacity, and status.
+        </p>
+      </div>
+
+      <!-- TASK 7 — Styled table with all required properties -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Event Name</th>
+              <th>Date</th>
+              <th>Venue</th>
+              <th>Capacity</th>
+              <th>Registered</th>
+              <th>Fee</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>01</td>
+              <td style="text-align: left; font-weight: 500;">Summer Music Festival</td>
+              <td>Jul 12</td>
+              <td>Central Park</td>
+              <td>500</td>
+              <td>342</td>
+              <td>Free</td>
+              <td><span class="status-open">Open</span></td>
+            </tr>
+            <tr>
+              <td>02</td>
+              <td style="text-align: left; font-weight: 500;">Kids Art Workshop</td>
+              <td>Jul 18</td>
+              <td>Hall B</td>
+              <td>30</td>
+              <td>30</td>
+              <td>₹150</td>
+              <td><span class="status-full">Full</span></td>
+            </tr>
+            <tr>
+              <td>03</td>
+              <td style="text-align: left; font-weight: 500;">Green City Nature Walk</td>
+              <td>Jul 26</td>
+              <td>Riverside Trail</td>
+              <td>80</td>
+              <td>54</td>
+              <td>Free</td>
+              <td><span class="status-open">Open</span></td>
+            </tr>
+            <tr>
+              <td>04</td>
+              <td style="text-align: left; font-weight: 500;">Community Sports Day</td>
+              <td>Aug 2</td>
+              <td>City Stadium</td>
+              <td>200</td>
+              <td>178</td>
+              <td>₹50</td>
+              <td><span class="status-soon">Closing Soon</span></td>
+            </tr>
+            <tr>
+              <td>05</td>
+              <td style="text-align: left; font-weight: 500;">Cultural Food Fair</td>
+              <td>Aug 9</td>
+              <td>Town Square</td>
+              <td>Unlimited</td>
+              <td>621</td>
+              <td>Free</td>
+              <td><span class="status-open">Open</span></td>
+            </tr>
+            <tr>
+              <td>06</td>
+              <td style="text-align: left; font-weight: 500;">Photography Walk</td>
+              <td>Aug 14</td>
+              <td>Old Quarter</td>
+              <td>25</td>
+              <td>19</td>
+              <td>₹200</td>
+              <td><span class="status-open">Open</span></td>
+            </tr>
+            <tr>
+              <td>07</td>
+              <td style="text-align: left; font-weight: 500;">Street Theatre Night</td>
+              <td>Aug 22</td>
+              <td>Heritage Park</td>
+              <td>300</td>
+              <td>112</td>
+              <td>Free</td>
+              <td><span class="status-open">Open</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- TASK 8 — Box Model Demo (border, padding, margin, outline) + visibility: hidden vs display: none comparison -->
+    <section id="boxmodel" class="section-wrap" style="background: var(--clr-bg);">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <span class="label-text">CSS Concept</span>
+        <h2 style="margin-top: 8px;">Box Model &amp; Visibility</h2>
+      </div>
+
+      <div class="flex-row" style="align-items: stretch;">
+
+        <div style="flex: 1; min-width: 260px;">
+          <h3 style="margin-bottom: 14px; color: var(--clr-primary-dk);">Box Model Demo</h3>
+          <p class="body-copy" style="margin-bottom: 16px;">
+            The card below has explicit <code style="background:#eee; padding:2px 6px; border-radius:3px;">border</code>,
+            <code style="background:#eee; padding:2px 6px; border-radius:3px;">padding</code>,
+            <code style="background:#eee; padding:2px 6px; border-radius:3px;">margin</code>, and
+            <code style="background:#eee; padding:2px 6px; border-radius:3px;">outline</code> applied.
+            Inspect it in DevTools to see the box model diagram.
+          </p>
+          <div class="box-model-demo" data-inspect>
+            <p style="margin-bottom: 0; font-size: 0.9rem;">
+              <strong>margin</strong> → space outside the border<br>
+              <strong>border</strong> → the solid edge (orange dashed here)<br>
+              <strong>padding</strong> → space inside the border<br>
+              <strong>outline</strong> → drawn outside the border, doesn't affect layout
+            </p>
+          </div>
+        </div>
+
+        <div style="flex: 1; min-width: 260px;">
+          <h3 style="margin-bottom: 14px; color: var(--clr-primary-dk);">visibility vs display</h3>
+
+          <div class="tinted-bg" style="margin-bottom: 16px;">
+            <p style="margin-bottom: 8px;"><strong>visibility: hidden</strong></p>
+            <p class="body-copy" style="font-size: 0.88rem;">
+              Box below is invisible but still occupies space in the layout.
+            </p>
+            <div class="visibility-demo vis-hidden">
+              I am hidden (visibility: hidden) — but my space remains.
+            </div>
+            <div style="background: #d1fae5; padding: 8px 12px; border-radius: 4px; font-size: 0.84rem; margin-top: 8px; color: #065f46;">
+              ↑ Empty space above is where the hidden element sits.
+            </div>
+          </div>
+
+          <div class="tinted-bg">
+            <p style="margin-bottom: 8px;"><strong>display: none</strong></p>
+            <p class="body-copy" style="font-size: 0.88rem;">
+              Box below is completely removed — it takes up no space at all.
+            </p>
+            <div class="visibility-demo disp-none">
+              I am removed from layout (display: none).
+            </div>
+            <div style="background: #fee2e2; padding: 8px 12px; border-radius: 4px; font-size: 0.84rem; margin-top: 8px; color: #991b1b;">
+              ↑ No gap here — element is entirely absent from flow.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- TASK 5 — Typography demo section -->
+    <!-- TASK 6 — Link pseudo-class demo -->
+    <section id="register" class="section-wrap" style="background: #fff;">
+      <div style="text-align: center; margin-bottom: 32px;">
+        <span class="label-text">Get Involved</span>
+        <h2 style="margin-top: 8px;">Event Registration</h2>
+        <p class="section-desc">
+          Sign up for an upcoming event. Fields with an <span class="accent-text">*</span> are required.
+        </p>
+      </div>
+
+      <div style="max-width: 620px; margin: 0 auto;">
+
+        <!-- TASK 8 — outline on focus (styles.css) -->
+        <div class="form-group">
+          <label for="rName">Full Name *</label>
+          <input type="text" id="rName" placeholder="e.g. Aisha Kumar" required autofocus>
+        </div>
+
+        <div class="form-group">
+          <label for="rEmail">Email Address *</label>
+          <input type="email" id="rEmail" placeholder="you@example.com" required>
+        </div>
+
+        <div class="flex-row" style="gap: 16px;">
+          <div class="form-group" style="flex: 1;">
+            <label for="rPhone">Phone Number</label>
+            <input type="tel" id="rPhone" placeholder="9876543210">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <label for="rDate">Preferred Date *</label>
+            <input type="date" id="rDate" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="rEvent">Choose Event *</label>
+          <select id="rEvent" required>
+            <option value="">— Select an event —</option>
+            <option value="music">🎵 Summer Music Festival — Jul 12</option>
+            <option value="art">🎨 Kids Art Workshop — Jul 18</option>
+            <option value="nature">🌿 Green City Nature Walk — Jul 26</option>
+            <option value="sports">🏃 Community Sports Day — Aug 2</option>
+            <option value="food">🍜 Cultural Food Fair — Aug 9</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="rMessage">Special Requirements</label>
+          <textarea id="rMessage" placeholder="Dietary needs, accessibility requirements, questions…"></textarea>
+        </div>
+
+        <button class="cta-button" type="button" style="width: 100%; justify-content: center;" onclick="this.textContent='✅ Registered! Check your email.'">
+          Submit Registration
+        </button>
+
+        <!-- TASK 6 — Link pseudo-class demo note -->
+        <div class="tinted-bg" style="margin-top: 24px; font-size: 0.84rem;">
+          <strong>CSS Task 6 — Link Pseudo-Classes:</strong> Try these links to see
+          <a href="#events">:link</a> (green),
+          <a href="#bulletin">:hover</a> (turns terracotta on hover),
+          and <a href="#admin">:visited</a> (muted after click).
+          All defined in <code style="background: #eee; padding: 1px 5px; border-radius: 3px;">styles.css</code>.
+        </div>
+      </div>
+    </section>
+
+
+    <!-- TASK 11 — DevTools debugging guidance -->
+    <section id="devtools" class="section-wrap devtools-section">
+      <div style="text-align: center; margin-bottom: 8px;">
+        <span class="badge">Task 11</span>
+      </div>
+      <h2 style="text-align: center; margin-bottom: 8px;">Debugging with Chrome DevTools</h2>
+      <p style="text-align: center; color: rgba(255,255,255,0.65); margin-bottom: 0; font-size: 0.95rem;">
+        Use these techniques to inspect, debug, and refine the portal's CSS live.
+      </p>
+
+      <div class="devtip-grid">
+        <div class="devtip-card">
+          <h4>Inspect Element</h4>
+          <p>Right-click any element → <code>Inspect</code>. Edit styles in the Styles panel live. Toggle declarations on/off to test changes.</p>
+        </div>
+        <div class="devtip-card">
+          <h4>Device Toolbar</h4>
+          <p>Press <code>Ctrl+Shift+M</code> to simulate phone and tablet screens. Watch the breakpoint indicator (bottom-right) change.</p>
+        </div>
+        <div class="devtip-card">
+          <h4>Network Tab</h4>
+          <p>Open DevTools → <code>Network</code> → refresh. Confirm <code>styles.css</code> loads with status <code>200</code>.</p>
+        </div>
+        <div class="devtip-card">
+          <h4>Box Model Panel</h4>
+          <p>Select any <code>.eventCard</code> → look at the box model diagram in the Computed tab. Hover each layer to highlight it.</p>
+        </div>
+        <div class="devtip-card">
+          <h4>Debug Layout Mode</h4>
+          <p>In Console, type: <code>document.body.classList.toggle('debug-layout')</code> to outline every element on the page.</p>
+        </div>
+        <div class="devtip-card">
+          <h4>Force Link States</h4>
+          <p>In Styles panel, click the <code>:hov</code> button and check <code>:hover</code>, <code>:visited</code>, or <code>:active</code> to test link pseudo-classes without clicking.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- TASK 3 — ID Selector: #mainFooter -->
+  <footer id="mainFooter">
+    <p>
+      <strong style="color: var(--clr-gold); font-family: var(--ff-display); font-size: 1.1rem;">CivicPulse</strong>
+      &nbsp;—&nbsp; Local Community Event Portal &nbsp;|&nbsp; A City Council Initiative
+    </p>
+    <p style="margin-top: 8px;">
+      <a href="#hero">Home</a> &nbsp;·&nbsp;
+      <a href="#events">Events</a> &nbsp;·&nbsp;
+      <a href="#bulletin">Bulletin</a> &nbsp;·&nbsp;
+      <a href="#register">Register</a> &nbsp;·&nbsp;
+      <a href="help.html" target="_blank" rel="noopener">Help ↗</a>
+    </p>
+    <p style="margin-top: 12px; font-size: 0.78rem; opacity: 0.5;">
+      CSS3 Exercise Project · All 11 tasks implemented · Stylesheet: styles.css
+    </p>
+  </footer>
+
+</body>
+</html>
